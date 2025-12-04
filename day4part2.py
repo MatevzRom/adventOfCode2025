@@ -6,11 +6,9 @@ with open(filename, "r") as f:
         line = line.strip()
         table.append(list(line))
 table = np.array(table)
-# print(table)
-final_res = 0
+score = 0
 while(True):
     indeks_remove = []
-    score = 0
     for i in range(table.shape[0]):
         for j in range(table.shape[1]):
             count=0
@@ -37,8 +35,6 @@ while(True):
                     indeks_remove.append((i,j))
     if indeks_remove == []:
         break
-    final_res+=score
-    
     a, b = zip(*indeks_remove)
     table[a,b] = "x"
-print(final_res)
+print(score)
